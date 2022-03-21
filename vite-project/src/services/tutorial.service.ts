@@ -23,6 +23,10 @@ class TutorialDataService {
     return http.delete<string>(`/tutorials/${id}`)
   }
 
+  deleteAll() {
+    return http.delete<any>(`/tutorials`)
+  }
+
   findByTitle(title: string) {
     return http.get<Array<ITutorialData>>(`/tutorials?title=${title}`)
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Routes, Link } from 'react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import TutorialList from './components/TutorialList'
@@ -28,12 +28,11 @@ class App extends Component {
           </div>
         </nav>
         <div className="container mt-3">
-          <Routes>
-            <Route path={'/'} element={<TutorialList />} />
-            <Route path={'/tutorials'} element={<TutorialList />} />
-            <Route path={'/add'} element={<AddTutorial />} />
-            <Route path={'/tutorials/:id'} element={<Tutorial />} />
-          </Routes>
+          <Switch>
+            <Route exact path={['/', '/tutorials']} component={TutorialList} />
+            <Route exact path={'/add'} component={AddTutorial} />
+            <Route path={'/tutorials/:id'} component={Tutorial} />
+          </Switch>
         </div>
       </div>
     )

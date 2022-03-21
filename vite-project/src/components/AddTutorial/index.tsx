@@ -83,15 +83,15 @@ export default class AddTutorial extends Component<PromptProps, State> {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="title">Title</label>
               <input
                 type="text"
                 className="form-control"
-                id="description"
+                id="title"
                 required
-                value={description}
-                onChange={this.onChangeDescription}
-                name="description"
+                value={title}
+                onChange={this.onChangeTitle}
+                name="title"
               />
             </div>
             <div className="form-group">
