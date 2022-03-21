@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import http from '../http-common'
 import ITutorialData from '../types/tutorial.type'
 
