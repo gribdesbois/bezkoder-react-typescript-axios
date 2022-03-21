@@ -1,45 +1,40 @@
-import { useState } from 'react'
-import logo from './logo.svg'
+import React, { Component } from 'react'
+import { Route, Routes, Link } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import TutorialList from './components/TutorialList'
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <nav className="navbar navbar-expand navbar-dark bg-dark">
+          <Link to={'/tutorials'} className="navbar-brand">
+            bezKoder
+          </Link>
+          <div className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link to={'/tutorials'} className="nav-link">
+                Tutorials
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={'/add'} className="nav-link">
+                Add
+              </Link>
+            </li>
+          </div>
+        </nav>
+        <div className="container mt-3">
+          <Routes>
+            <Route path={'/'} element={<TutorialList />}>
+              {' '}
+            </Route>
+          </Routes>{' '}
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App
